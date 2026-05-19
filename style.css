@@ -1,0 +1,368 @@
+:root {
+  --black: #050505;
+  --dark-graphite: #2B2B2B;
+  --mid-gray: #6A6A6A;
+  --silver-gray: #DADADB;
+  --light-gray: #EDEEEE;
+  --white: #FFFFFF;
+  --yellow-light: #F2C525;
+  --whatsapp-green: #25D366;
+  --whatsapp-dark: #128C7E;
+  --bg-color: #F7F7F5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  background: radial-gradient(circle at top center, #FFFFFF 0%, var(--bg-color) 70%, var(--light-gray) 100%);
+  color: var(--black);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2.5rem 1.5rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px; /* Entre 430px e 520px */
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* 1. TOPO */
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.logo-container {
+  width: 145px;
+  height: 145px;
+  background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 50%, var(--silver-gray) 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 12px 35px rgba(242, 197, 37, 0.35), inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+  padding: 1.25rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dark-graphite);
+  margin-bottom: 1.2rem;
+}
+
+.support-text {
+  font-size: 0.875rem;
+  color: var(--mid-gray);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* 2. BLOCO DE CHAMADA */
+.call-to-action {
+  background-color: var(--white);
+  border: 1px solid var(--silver-gray);
+  border-left: 4px solid var(--yellow-light);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(5, 5, 5, 0.04);
+  font-weight: 500;
+  color: var(--dark-graphite);
+  font-size: 0.95rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* 3. & 4. BOTÕES */
+.links-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.15rem 1.4rem;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(5, 5, 5, 0.08);
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  flex-grow: 1;
+}
+
+.btn-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.btn-subtitle {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--yellow-light);
+  font-size: 1.4rem;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .btn-icon {
+  transform: scale(1.1);
+}
+
+/* Primary Buttons (WhatsApp) */
+.btn-primary {
+  background-color: var(--white);
+  color: var(--dark-graphite);
+  border: 1px solid var(--silver-gray);
+  border-left: 4px solid var(--yellow-light);
+  box-shadow: 0 4px 12px rgba(5, 5, 5, 0.03);
+}
+
+.btn-primary:hover {
+  background-color: #FAFAFA;
+  box-shadow: 0 8px 20px rgba(5, 5, 5, 0.06);
+  border-color: var(--silver-gray);
+  border-left-color: var(--yellow-light);
+}
+
+.btn-primary .btn-icon {
+  color: var(--whatsapp-green);
+}
+
+.btn-primary .btn-subtitle {
+  color: var(--mid-gray);
+}
+
+/* Secondary Buttons */
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--black);
+  border: 1px solid var(--silver-gray);
+  box-shadow: 0 4px 12px rgba(5, 5, 5, 0.04);
+}
+
+.btn-secondary:hover {
+  border-color: var(--yellow-light);
+  background-color: #FAFAFA;
+}
+
+.btn-secondary .btn-subtitle {
+  color: var(--mid-gray);
+}
+
+/* 5. CARD DE ENDEREÇO */
+.address-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 1.75rem;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(5, 5, 5, 0.05);
+  margin-top: 1rem;
+  border-top: 4px solid var(--yellow-light);
+}
+
+.address-icon {
+  color: var(--yellow-light);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.address-text {
+  font-size: 0.95rem;
+  color: var(--dark-graphite);
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.address-support {
+  font-size: 0.85rem;
+  color: var(--mid-gray);
+  line-height: 1.5;
+}
+
+/* 6. RODAPÉ */
+.footer {
+  text-align: center;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 0.8rem;
+  color: var(--mid-gray);
+  font-weight: 500;
+}
+
+.footer-link {
+  color: var(--mid-gray);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--dark-graphite);
+  text-decoration: underline;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.links-group .btn {
+  animation: fadeIn 0.6s ease-out backwards;
+}
+
+.links-group .btn:nth-child(1) { animation-delay: 0.1s; }
+.links-group .btn:nth-child(2) { animation-delay: 0.2s; }
+.links-group .btn:nth-child(3) { animation-delay: 0.3s; }
+
+.secondary-group .btn:nth-child(1) { animation-delay: 0.4s; }
+.secondary-group .btn:nth-child(2) { animation-delay: 0.5s; }
+.secondary-group .btn:nth-child(3) { animation-delay: 0.6s; }
+.secondary-group .btn:nth-child(4) { animation-delay: 0.7s; }
+
+.address-card {
+  animation: fadeIn 0.8s ease-out backwards;
+  animation-delay: 0.8s;
+}
+
+.footer {
+  animation: fadeIn 1s ease-out backwards;
+  animation-delay: 1s;
+}
+
+/* Responsividade extra */
+@media (max-width: 380px) {
+  .logo-container {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .btn {
+    padding: 1rem 1.15rem;
+  }
+  
+  .title {
+    font-size: 1.4rem;
+  }
+}
+
+/* --- Páginas Legais --- */
+.legal-content {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 28px rgba(5, 5, 5, 0.05);
+  color: var(--dark-graphite);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.legal-content h1 {
+  font-size: 1.6rem;
+  color: var(--black);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.legal-content h2 {
+  font-size: 1.2rem;
+  color: var(--black);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.legal-content p {
+  margin-bottom: 1rem;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--mid-gray);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+  align-self: flex-start;
+  animation: fadeIn 0.5s ease-out backwards;
+}
+
+.back-btn:hover {
+  color: var(--black);
+}
