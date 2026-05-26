@@ -1,21 +1,14 @@
-﻿:root {
-  --black: #0B0B0C;
-  --dark-graphite: #1C1C1E;
-  --mid-gray: #6E7075;
-  --silver-gray: #D2D3D6;
-  --light-gray: #F0F1F3;
+:root {
+  --black: #050505;
+  --dark-graphite: #2B2B2B;
+  --mid-gray: #6A6A6A;
+  --silver-gray: #DADADB;
+  --light-gray: #EDEEEE;
   --white: #FFFFFF;
   --yellow-light: #F2C525;
-  --gold-accent: #E5B218;
   --whatsapp-green: #25D366;
   --whatsapp-dark: #128C7E;
-  --bg-color: #F8F9FA;
-  
-  /* Simulador de iluminação padrões */
-  --ambient-glow: rgba(253, 184, 39, 0.45);
-  --ambient-glow-sec: rgba(253, 184, 39, 0.2);
-  --room-bg-gradient: linear-gradient(135deg, #1e1b15 0%, #0d0a05 100%);
-  --bulb-color: #FDB827;
+  --bg-color: #F7F7F5;
 }
 
 * {
@@ -27,45 +20,45 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-color);
-  background: radial-gradient(circle at top center, #FFFFFF 0%, #F5F6F8 50%, #ECEEF2 100%);
+  background: radial-gradient(circle at top center, #FFFFFF 0%, var(--bg-color) 70%, var(--light-gray) 100%);
   color: var(--black);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 2rem 1.25rem;
+  padding: 2.5rem 1.5rem;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
 .container {
   width: 100%;
-  max-width: 480px; /* Layout compacto de biolink premium */
+  max-width: 480px; /* Entre 430px e 520px */
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
-/* 1. CABEÇALHO */
+/* 1. TOPO */
 .header {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .logo-container {
-  width: 120px;
-  height: 120px;
+  width: 145px;
+  height: 145px;
   background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 50%, var(--silver-gray) 100%);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1.25rem;
-  box-shadow: 0 10px 30px rgba(242, 197, 37, 0.3), inset 0 0 0 2px rgba(255, 255, 255, 0.8);
-  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 12px 35px rgba(242, 197, 37, 0.35), inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+  padding: 1.25rem;
   animation: float 6s ease-in-out infinite;
 }
 
@@ -76,122 +69,48 @@ body {
 }
 
 .title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.75rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--black);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.25rem;
   letter-spacing: -0.5px;
 }
 
-.support-text {
-  font-size: 0.85rem;
-  color: var(--mid-gray);
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+.subtitle {
+  font-size: 1rem;
   font-weight: 500;
+  color: var(--dark-graphite);
+  margin-bottom: 1.2rem;
 }
 
-/* 2. MENU DE NAVEGAÇÃO POR ABAS */
-.tabs-nav {
-  display: flex;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  padding: 0.4rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  justify-content: space-between;
-  gap: 0.25rem;
-  position: sticky;
-  top: 1rem;
-  z-index: 100;
-}
-
-.tab-btn {
-  flex: 1;
-  background: transparent;
-  border: none;
-  padding: 0.75rem 0.25rem;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 600;
+.support-text {
+  font-size: 0.875rem;
   color: var(--mid-gray);
-  cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  font-family: 'Outfit', sans-serif;
+  gap: 0.4rem;
 }
 
-.tab-btn i {
-  font-size: 1.05rem;
-  transition: transform 0.3s ease;
-}
-
-.tab-btn:hover {
-  color: var(--black);
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.tab-btn:hover i {
-  transform: translateY(-2px);
-}
-
-.tab-btn.active {
-  background: var(--white);
-  color: var(--gold-accent);
-  box-shadow: 0 4px 12px rgba(229, 178, 24, 0.15), 0 1px 3px rgba(0,0,0,0.02);
-}
-
-/* 3. CONTEÚDO DAS ABAS */
-.tab-content {
-  display: none;
-  flex-direction: column;
-  gap: 1.25rem;
-  width: 100%;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.tab-content.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Títulos de Seção */
-.section-title-container {
+/* 2. BLOCO DE CHAMADA */
+.call-to-action {
+  background-color: var(--white);
+  border: 1px solid var(--silver-gray);
+  border-left: 4px solid var(--yellow-light);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
   text-align: center;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  animation: fadeIn 0.5s ease-out;
+  box-shadow: 0 6px 16px rgba(5, 5, 5, 0.04);
+  font-weight: 500;
+  color: var(--dark-graphite);
+  font-size: 0.95rem;
+  animation: fadeIn 0.8s ease-out;
 }
 
-.section-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--black);
-  letter-spacing: -0.2px;
-}
-
-.section-subtitle {
-  font-size: 0.8rem;
-  color: var(--mid-gray);
-  margin-top: 0.2rem;
-  font-weight: 400;
-}
-
-/* ================= ABA 1: LINKS & BOTÕES ================= */
+/* 3. & 4. BOTÕES */
 .links-group {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
 .btn {
@@ -199,13 +118,12 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1.1rem 1.25rem;
-  border-radius: 16px;
+  padding: 1.15rem 1.4rem;
+  border-radius: 14px;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .btn:active {
@@ -213,26 +131,26 @@ body {
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(5, 5, 5, 0.08);
 }
 
 .btn-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.15rem;
+  gap: 0.2rem;
   flex-grow: 1;
 }
 
 .btn-title {
   font-weight: 600;
-  font-size: 1rem;
-  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
 }
 
 .btn-subtitle {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 400;
 }
 
@@ -240,26 +158,30 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.35rem;
-  margin-left: 0.75rem;
+  color: var(--yellow-light);
+  font-size: 1.4rem;
+  margin-left: 1rem;
   transition: transform 0.3s ease;
 }
 
 .btn:hover .btn-icon {
-  transform: scale(1.15) rotate(5deg);
+  transform: scale(1.1);
 }
 
-/* Botões do WhatsApp (Primários) */
+/* Primary Buttons (WhatsApp) */
 .btn-primary {
   background-color: var(--white);
   color: var(--dark-graphite);
+  border: 1px solid var(--silver-gray);
   border-left: 4px solid var(--yellow-light);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 12px rgba(5, 5, 5, 0.03);
 }
 
 .btn-primary:hover {
-  background-color: #FAFBFB;
-  border-left-color: var(--gold-accent);
+  background-color: #FAFAFA;
+  box-shadow: 0 8px 20px rgba(5, 5, 5, 0.06);
+  border-color: var(--silver-gray);
+  border-left-color: var(--yellow-light);
 }
 
 .btn-primary .btn-icon {
@@ -270,543 +192,62 @@ body {
   color: var(--mid-gray);
 }
 
-/* Botões Secundários */
+/* Secondary Buttons */
 .btn-secondary {
   background-color: var(--white);
   color: var(--black);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--silver-gray);
+  box-shadow: 0 4px 12px rgba(5, 5, 5, 0.04);
 }
 
 .btn-secondary:hover {
   border-color: var(--yellow-light);
-  background-color: #FAFBFB;
+  background-color: #FAFAFA;
 }
 
 .btn-secondary .btn-subtitle {
   color: var(--mid-gray);
 }
 
-/* ================= ABA 2: SIMULADOR DE LUZ ================= */
-.room-preview {
-  width: 100%;
-  height: 240px;
-  background: var(--room-bg-gradient);
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), inset 0 0 40px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background 0.6s ease;
-}
-
-/* Feixe de Luz Dinâmico */
-.light-beam {
-  position: absolute;
-  top: 45px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 130px;
-  height: 195px;
-  background: radial-gradient(ellipse at top, var(--ambient-glow) 0%, var(--ambient-glow-sec) 50%, transparent 100%);
-  clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
-  pointer-events: none;
-  transition: background 0.6s ease;
-  mix-blend-mode: screen;
-}
-
-/* Decoração do Quarto (Minimalista em CSS) */
-.room-decor {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-/* Lustre */
-.chandelier {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 10;
-}
-
-.cord {
-  width: 2px;
-  height: 30px;
-  background: #666;
-}
-
-.shade {
-  width: 28px;
-  height: 16px;
-  background: linear-gradient(to bottom, #444, #222);
-  border-radius: 6px 6px 0 0;
-}
-
-.bulb {
-  width: 10px;
-  height: 10px;
-  background-color: var(--bulb-color);
-  border-radius: 50%;
-  margin-top: -2px;
-  box-shadow: 0 0 15px var(--bulb-color), 0 0 30px var(--bulb-color);
-  transition: background-color 0.6s ease, box-shadow 0.6s ease;
-}
-
-/* Sofá Minimalista */
-.couch {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 130px;
-  height: 38px;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 8px 8px 3px 3px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 6px 12px rgba(255, 255, 255, 0.05);
-}
-
-.couch::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: 12px;
-  right: 12px;
-  height: 14px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 5px 5px 0 0;
-}
-
-/* Mesinha de Canto */
-.side-table {
-  position: absolute;
-  bottom: 12px;
-  right: 50px;
-  width: 22px;
-  height: 26px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 3px;
-  border-top: 3px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Abajur da mesa */
-.table-lamp {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 12px;
-  height: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.table-lamp::before {
-  content: '';
-  width: 10px;
-  height: 8px;
-  background: rgba(255,255,255,0.4);
-  border-radius: 4px 4px 0 0;
-  box-shadow: 0 0 8px var(--bulb-color);
-}
-
-/* Moldura na parede */
-.wall-frame {
-  position: absolute;
-  top: 50px;
-  left: 45px;
-  width: 32px;
-  height: 45px;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 3px;
-}
-
-/* Controles do Simulador */
-.simulator-controls {
-  display: flex;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.temp-btn {
-  flex: 1;
-  background: var(--white);
-  border: 1px solid var(--silver-gray);
-  padding: 0.9rem 0.5rem;
-  border-radius: 14px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--dark-graphite);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.15rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.02);
-  font-family: 'Outfit', sans-serif;
-}
-
-.temp-lbl-sm {
-  font-size: 0.68rem;
-  font-weight: 500;
-  color: var(--mid-gray);
-}
-
-.temp-btn:hover {
-  border-color: var(--yellow-light);
-  transform: translateY(-1px);
-}
-
-.temp-btn.active {
-  background: var(--black);
-  border-color: var(--black);
-  color: var(--yellow-light);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}
-
-.temp-btn.active .temp-lbl-sm {
-  color: var(--white);
-  opacity: 0.8;
-}
-
-/* Card Informativo do Simulador */
-.temp-info-card {
-  background-color: var(--white);
-  border-radius: 16px;
-  padding: 1.25rem 1.4rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-  border-left: 4px solid var(--yellow-light);
-}
-
-.temp-value-label {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 0.4rem;
-  transition: opacity 0.2s ease;
-}
-
-.temp-description {
-  font-size: 0.85rem;
-  color: var(--mid-gray);
-  line-height: 1.6;
-  transition: opacity 0.2s ease;
-}
-
-/* ================= ABA 3: VITRINE DE DESTAQUES ================= */
-.vitrine-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-}
-
-.product-card {
-  background: var(--white);
-  border-radius: 18px;
-  border: 1px solid var(--silver-gray);
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--yellow-light);
-  box-shadow: 0 12px 30px rgba(229, 178, 24, 0.1);
-}
-
-.product-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: var(--black);
-  color: var(--yellow-light);
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 0.3rem 0.6rem;
-  border-radius: 8px;
-  letter-spacing: 0.5px;
-  z-index: 5;
-}
-
-.product-image-container {
-  height: 145px;
-  background: linear-gradient(135deg, #1b1c1e 0%, #0d0e10 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.product-vector {
-  color: var(--yellow-light);
-  font-size: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.fa-spin-slow {
-  animation: fa-spin 12s linear infinite;
-}
-
-/* Efeito aro slim */
-.product-card:hover .product-vector {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-}
-
-/* Perfil Led Vetor */
-.linear-led-vector {
-  width: 90px;
-  height: 6px;
-  background-color: var(--white);
-  border-radius: 3px;
-  box-shadow: 0 0 12px #FFF, 0 0 25px var(--yellow-light);
-  transform: rotate(-15deg);
-  transition: transform 0.5s ease;
-}
-
-.product-card:hover .linear-led-vector {
-  transform: rotate(-5deg) scale(1.1);
-}
-
-/* Facho Arandela Vetor */
-.facho-arandela-vector {
-  width: 25px;
-  height: 40px;
-  background: #333;
-  border-radius: 3px;
-  position: relative;
-}
-
-.facho-arandela-vector::before,
-.facho-arandela-vector::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-}
-
-.facho-arandela-vector::before {
-  top: -30px;
-  border-bottom: 30px solid rgba(254, 201, 47, 0.6);
-  filter: blur(2px);
-}
-
-.facho-arandela-vector::after {
-  bottom: -30px;
-  border-top: 30px solid rgba(254, 201, 47, 0.6);
-  filter: blur(2px);
-}
-
-.product-info {
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  flex-grow: 1;
-}
-
-.product-name {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--black);
-}
-
-.product-desc {
-  font-size: 0.8rem;
-  color: var(--mid-gray);
-  line-height: 1.5;
-  flex-grow: 1;
-}
-
-.product-action-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: var(--white);
-  border: 1px solid var(--whatsapp-green);
-  color: var(--whatsapp-dark);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.85rem;
-  padding: 0.75rem;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  margin-top: 0.4rem;
-  font-family: 'Outfit', sans-serif;
-}
-
-.product-action-btn:hover {
-  background: var(--whatsapp-green);
-  color: var(--white);
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-}
-
-/* ================= ABA 4: A LOJA / SOBRE ================= */
+/* 5. CARD DE ENDEREÇO */
 .address-card {
   background-color: var(--white);
-  border-radius: 20px;
-  padding: 1.5rem;
+  border-radius: 16px;
+  padding: 1.75rem;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 28px rgba(5, 5, 5, 0.05);
+  margin-top: 1rem;
   border-top: 4px solid var(--yellow-light);
 }
 
 .address-icon {
   color: var(--yellow-light);
   font-size: 1.6rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .address-text {
   font-size: 0.95rem;
   color: var(--dark-graphite);
-  font-weight: 600;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  font-family: 'Outfit', sans-serif;
-}
-
-.address-support {
-  font-size: 0.82rem;
-  color: var(--mid-gray);
+  font-weight: 500;
+  margin-bottom: 1.25rem;
   line-height: 1.6;
 }
 
-/* Horário de Atendimento */
-.opening-hours-card {
-  background: var(--white);
-  border-radius: 18px;
-  padding: 1.25rem 1.4rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-  border: 1px solid var(--silver-gray);
-}
-
-.hours-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.hours-title i {
-  color: var(--gold-accent);
-}
-
-.hours-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.hours-list li {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.82rem;
-  border-bottom: 1px dashed var(--light-gray);
-  padding-bottom: 0.5rem;
-}
-
-.hours-list li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.hours-list .day {
-  font-weight: 600;
-  color: var(--dark-graphite);
-}
-
-.hours-list .time {
+.address-support {
+  font-size: 0.85rem;
   color: var(--mid-gray);
-  font-weight: 500;
+  line-height: 1.5;
 }
 
-/* Telefone Card */
-.phone-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: var(--white);
-  border-radius: 16px;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-  border: 1px solid var(--silver-gray);
-}
-
-.phone-icon {
-  background: var(--light-gray);
-  color: var(--black);
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.1rem;
-}
-
-.phone-details {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.1rem;
-}
-
-.phone-label {
-  font-size: 0.72rem;
-  color: var(--mid-gray);
-  font-weight: 500;
-}
-
-.phone-number {
-  color: var(--black);
-  text-decoration: none;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
-  transition: color 0.3s ease;
-}
-
-.phone-number:hover {
-  color: var(--gold-accent);
-}
-
-/* ================= 6. RODAPÉ ================= */
+/* 6. RODAPÉ */
 .footer {
   text-align: center;
   margin-top: 1rem;
   padding-bottom: 1rem;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--mid-gray);
   font-weight: 500;
-  line-height: 1.5;
 }
 
 .footer-link {
@@ -816,15 +257,15 @@ body {
 }
 
 .footer-link:hover {
-  color: var(--black);
+  color: var(--dark-graphite);
   text-decoration: underline;
 }
 
-/* ================= ANIMAÇÕES ================= */
+/* Animações */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -834,92 +275,94 @@ body {
 
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
 }
 
-/* Responsividade de Tela */
+.links-group .btn {
+  animation: fadeIn 0.6s ease-out backwards;
+}
+
+.links-group .btn:nth-child(1) { animation-delay: 0.1s; }
+.links-group .btn:nth-child(2) { animation-delay: 0.2s; }
+.links-group .btn:nth-child(3) { animation-delay: 0.3s; }
+
+.secondary-group .btn:nth-child(1) { animation-delay: 0.4s; }
+.secondary-group .btn:nth-child(2) { animation-delay: 0.5s; }
+.secondary-group .btn:nth-child(3) { animation-delay: 0.6s; }
+.secondary-group .btn:nth-child(4) { animation-delay: 0.7s; }
+
+.address-card {
+  animation: fadeIn 0.8s ease-out backwards;
+  animation-delay: 0.8s;
+}
+
+.footer {
+  animation: fadeIn 1s ease-out backwards;
+  animation-delay: 1s;
+}
+
+/* Responsividade extra */
 @media (max-width: 380px) {
   .logo-container {
-    width: 105px;
-    height: 105px;
-  }
-  
-  .title {
-    font-size: 1.5rem;
+    width: 110px;
+    height: 110px;
   }
   
   .btn {
-    padding: 0.95rem 1.1rem;
+    padding: 1rem 1.15rem;
   }
   
-  .tab-btn {
-    font-size: 0.75rem;
-    padding: 0.6rem 0.15rem;
-  }
-
-  .tab-btn i {
-    font-size: 0.95rem;
-  }
-  
-  .room-preview {
-    height: 200px;
-  }
-  
-  .light-beam {
-    height: 155px;
-    width: 110px;
+  .title {
+    font-size: 1.4rem;
   }
 }
 
-/* --- Páginas Legais Especiais --- */
+/* --- Páginas Legais --- */
+.legal-content {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 28px rgba(5, 5, 5, 0.05);
+  color: var(--dark-graphite);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.legal-content h1 {
+  font-size: 1.6rem;
+  color: var(--black);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.legal-content h2 {
+  font-size: 1.2rem;
+  color: var(--black);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.legal-content p {
+  margin-bottom: 1rem;
+}
+
 .back-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   color: var(--mid-gray);
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
   transition: color 0.3s ease;
   align-self: flex-start;
-  font-family: 'Outfit', sans-serif;
+  animation: fadeIn 0.5s ease-out backwards;
 }
 
 .back-btn:hover {
   color: var(--black);
-}
-
-.legal-content {
-  background-color: var(--white);
-  border-radius: 20px;
-  padding: 1.75rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-  color: var(--dark-graphite);
-  font-size: 0.88rem;
-  line-height: 1.6;
-  text-align: left;
-  border: 1px solid var(--silver-gray);
-  animation: fadeIn 0.5s ease-out;
-}
-
-.legal-content h1 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.45rem;
-  color: var(--black);
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.3px;
-}
-
-.legal-content h2 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.1rem;
-  color: var(--black);
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.legal-content p {
-  margin-bottom: 0.85rem;
 }
